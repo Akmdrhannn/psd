@@ -1,0 +1,149 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/usr/local/lib/python3.10/dist-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from ucimlrepo import fetch_ucirepo
+
+# fetch dataset
+zoo = fetch_ucirepo(id=111)
+
+# data (as pandas dataframes)
+X = zoo.data.features
+y = zoo.data.targets
+
+
+# metadata
+print(zoo.metadata)
+
+# variable information
+print(zoo.variables)
+
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mSSLCertVerificationError[0m                  Traceback (most recent call last)
+[0;32m/usr/lib/python3.10/urllib/request.py[0m in [0;36mdo_open[0;34m(self, http_class, req, **http_conn_args)[0m
+[1;32m   1347[0m             [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1348[0;31m                 h.request(req.get_method(), req.selector, req.data, headers,
+[0m[1;32m   1349[0m                           encode_chunked=req.has_header('Transfer-encoding'))
+
+[0;32m/usr/lib/python3.10/http/client.py[0m in [0;36mrequest[0;34m(self, method, url, body, headers, encode_chunked)[0m
+[1;32m   1282[0m         [0;34m"""Send a complete request to the server."""[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1283[0;31m         [0mself[0m[0;34m.[0m[0m_send_request[0m[0;34m([0m[0mmethod[0m[0;34m,[0m [0murl[0m[0;34m,[0m [0mbody[0m[0;34m,[0m [0mheaders[0m[0;34m,[0m [0mencode_chunked[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1284[0m [0;34m[0m[0m
+
+[0;32m/usr/lib/python3.10/http/client.py[0m in [0;36m_send_request[0;34m(self, method, url, body, headers, encode_chunked)[0m
+[1;32m   1328[0m             [0mbody[0m [0;34m=[0m [0m_encode[0m[0;34m([0m[0mbody[0m[0;34m,[0m [0;34m'body'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1329[0;31m         [0mself[0m[0;34m.[0m[0mendheaders[0m[0;34m([0m[0mbody[0m[0;34m,[0m [0mencode_chunked[0m[0;34m=[0m[0mencode_chunked[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1330[0m [0;34m[0m[0m
+
+[0;32m/usr/lib/python3.10/http/client.py[0m in [0;36mendheaders[0;34m(self, message_body, encode_chunked)[0m
+[1;32m   1277[0m             [0;32mraise[0m [0mCannotSendHeader[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1278[0;31m         [0mself[0m[0;34m.[0m[0m_send_output[0m[0;34m([0m[0mmessage_body[0m[0;34m,[0m [0mencode_chunked[0m[0;34m=[0m[0mencode_chunked[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1279[0m [0;34m[0m[0m
+
+[0;32m/usr/lib/python3.10/http/client.py[0m in [0;36m_send_output[0;34m(self, message_body, encode_chunked)[0m
+[1;32m   1037[0m         [0;32mdel[0m [0mself[0m[0;34m.[0m[0m_buffer[0m[0;34m[[0m[0;34m:[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1038[0;31m         [0mself[0m[0;34m.[0m[0msend[0m[0;34m([0m[0mmsg[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1039[0m [0;34m[0m[0m
+
+[0;32m/usr/lib/python3.10/http/client.py[0m in [0;36msend[0;34m(self, data)[0m
+[1;32m    975[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0mauto_open[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 976[0;31m                 [0mself[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    977[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/lib/python3.10/http/client.py[0m in [0;36mconnect[0;34m(self)[0m
+[1;32m   1454[0m [0;34m[0m[0m
+[0;32m-> 1455[0;31m             self.sock = self._context.wrap_socket(self.sock,
+[0m[1;32m   1456[0m                                                   server_hostname=server_hostname)
+
+[0;32m/usr/lib/python3.10/ssl.py[0m in [0;36mwrap_socket[0;34m(self, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, session)[0m
+[1;32m    512[0m         [0;31m# ctx._wrap_socket()[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 513[0;31m         return self.sslsocket_class._create(
+[0m[1;32m    514[0m             [0msock[0m[0;34m=[0m[0msock[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/lib/python3.10/ssl.py[0m in [0;36m_create[0;34m(cls, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, context, session)[0m
+[1;32m   1070[0m                         [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m"do_handshake_on_connect should not be specified for non-blocking sockets"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1071[0;31m                     [0mself[0m[0;34m.[0m[0mdo_handshake[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1072[0m             [0;32mexcept[0m [0;34m([0m[0mOSError[0m[0;34m,[0m [0mValueError[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/lib/python3.10/ssl.py[0m in [0;36mdo_handshake[0;34m(self, block)[0m
+[1;32m   1341[0m                 [0mself[0m[0;34m.[0m[0msettimeout[0m[0;34m([0m[0;32mNone[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1342[0;31m             [0mself[0m[0;34m.[0m[0m_sslobj[0m[0;34m.[0m[0mdo_handshake[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1343[0m         [0;32mfinally[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mSSLCertVerificationError[0m: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1007)
+
+During handling of the above exception, another exception occurred:
+
+[0;31mURLError[0m                                  Traceback (most recent call last)
+[0;32m/usr/local/lib/python3.10/dist-packages/ucimlrepo/fetch.py[0m in [0;36mfetch_ucirepo[0;34m(name, id)[0m
+[1;32m     65[0m     [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 66[0;31m         [0mresponse[0m  [0;34m=[0m [0murllib[0m[0;34m.[0m[0mrequest[0m[0;34m.[0m[0murlopen[0m[0;34m([0m[0mapi_url[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     67[0m         [0mdata[0m [0;34m=[0m [0mjson[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mresponse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/lib/python3.10/urllib/request.py[0m in [0;36murlopen[0;34m(url, data, timeout, cafile, capath, cadefault, context)[0m
+[1;32m    215[0m         [0mopener[0m [0;34m=[0m [0m_opener[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 216[0;31m     [0;32mreturn[0m [0mopener[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0murl[0m[0;34m,[0m [0mdata[0m[0;34m,[0m [0mtimeout[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    217[0m [0;34m[0m[0m
+
+[0;32m/usr/lib/python3.10/urllib/request.py[0m in [0;36mopen[0;34m(self, fullurl, data, timeout)[0m
+[1;32m    518[0m         [0msys[0m[0;34m.[0m[0maudit[0m[0;34m([0m[0;34m'urllib.Request'[0m[0;34m,[0m [0mreq[0m[0;34m.[0m[0mfull_url[0m[0;34m,[0m [0mreq[0m[0;34m.[0m[0mdata[0m[0;34m,[0m [0mreq[0m[0;34m.[0m[0mheaders[0m[0;34m,[0m [0mreq[0m[0;34m.[0m[0mget_method[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 519[0;31m         [0mresponse[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_open[0m[0;34m([0m[0mreq[0m[0;34m,[0m [0mdata[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    520[0m [0;34m[0m[0m
+
+[0;32m/usr/lib/python3.10/urllib/request.py[0m in [0;36m_open[0;34m(self, req, data)[0m
+[1;32m    535[0m         [0mprotocol[0m [0;34m=[0m [0mreq[0m[0;34m.[0m[0mtype[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 536[0;31m         result = self._call_chain(self.handle_open, protocol, protocol +
+[0m[1;32m    537[0m                                   '_open', req)
+
+[0;32m/usr/lib/python3.10/urllib/request.py[0m in [0;36m_call_chain[0;34m(self, chain, kind, meth_name, *args)[0m
+[1;32m    495[0m             [0mfunc[0m [0;34m=[0m [0mgetattr[0m[0;34m([0m[0mhandler[0m[0;34m,[0m [0mmeth_name[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 496[0;31m             [0mresult[0m [0;34m=[0m [0mfunc[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    497[0m             [0;32mif[0m [0mresult[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/lib/python3.10/urllib/request.py[0m in [0;36mhttps_open[0;34m(self, req)[0m
+[1;32m   1390[0m         [0;32mdef[0m [0mhttps_open[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mreq[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1391[0;31m             return self.do_open(http.client.HTTPSConnection, req,
+[0m[1;32m   1392[0m                 context=self._context, check_hostname=self._check_hostname)
+
+[0;32m/usr/lib/python3.10/urllib/request.py[0m in [0;36mdo_open[0;34m(self, http_class, req, **http_conn_args)[0m
+[1;32m   1350[0m             [0;32mexcept[0m [0mOSError[0m [0;32mas[0m [0merr[0m[0;34m:[0m [0;31m# timeout error[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1351[0;31m                 [0;32mraise[0m [0mURLError[0m[0;34m([0m[0merr[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1352[0m             [0mr[0m [0;34m=[0m [0mh[0m[0;34m.[0m[0mgetresponse[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mURLError[0m: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1007)>
+
+During handling of the above exception, another exception occurred:
+
+[0;31mConnectionError[0m                           Traceback (most recent call last)
+[0;32m<ipython-input-3-359071105ecb>[0m in [0;36m<cell line: 4>[0;34m()[0m
+[1;32m      2[0m [0;34m[0m[0m
+[1;32m      3[0m [0;31m# fetch dataset[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0mzoo[0m [0;34m=[0m [0mfetch_ucirepo[0m[0;34m([0m[0mid[0m[0;34m=[0m[0;36m111[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;34m[0m[0m
+[1;32m      6[0m [0;31m# data (as pandas dataframes)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.10/dist-packages/ucimlrepo/fetch.py[0m in [0;36mfetch_ucirepo[0;34m(name, id)[0m
+[1;32m     67[0m         [0mdata[0m [0;34m=[0m [0mjson[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mresponse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     68[0m     [0;32mexcept[0m [0;34m([0m[0murllib[0m[0;34m.[0m[0merror[0m[0;34m.[0m[0mURLError[0m[0;34m,[0m [0murllib[0m[0;34m.[0m[0merror[0m[0;34m.[0m[0mHTTPError[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 69[0;31m         [0;32mraise[0m [0mConnectionError[0m[0;34m([0m[0;34m'Error connecting to server'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     70[0m [0;34m[0m[0m
+[1;32m     71[0m     [0;31m# verify that dataset exists[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mConnectionError[0m: Error connecting to server
+
