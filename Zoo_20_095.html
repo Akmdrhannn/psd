@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Data Understanding - Zoo &#8212; Akhmad Raihan Aulia Fikri</title>
+    <title>Zoo &#8212; Akhmad Raihan Aulia Fikri</title>
   
   
   
@@ -62,6 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Zoo_20_095';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -169,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="1Eksplorasi_Data.html">Eksplorasi Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="2UTS_PSD.html">UTS PSD</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Understanding - Zoo</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Zoo</a></li>
 </ul>
 
     </div>
@@ -353,7 +355,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data Understanding - Zoo</h1>
+    <h1>Zoo</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -363,31 +365,37 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dataset-zoo">Install dataset Zoo</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-uci-error">Web Uci error</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-manual">install manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#business-understanding">Business Understanding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">Data Understanding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-atribut">Penjelasan atribut</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kelompok-hewan-berdasarkan-tipe-type">Kelompok hewan berdasarkan Tipe/type</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#melihat-fitur-yang-ada-pada-hewan"><strong>Melihat fitur yang ada pada hewan</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rata-rata-fitur-tiap-hewan">Rata rata fitur tiap hewan</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-hewan-berdasarkan-kaki">Menghitung hewan berdasarkan kaki</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-fitur-tanpa-kaki-legs">Distribusi Fitur tanpa kaki/legs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-fitur-kaki">Distribusi fitur kaki</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengurutan-nama-hewan-berdasarkan-kaki">Pengurutan nama Hewan berdasarkan kaki</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smote-metode-untuk-duplikasi"><strong>Smote metode untuk duplikasi</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">Data Preparation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#library-uci-machine-learning">Library uci machine learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dataset-zoo-otomatis">Install dataset Zoo otomatis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dataset-zoo-manual">Install dataset Zoo Manual</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-kelas-hewan">Mapping kelas hewan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rata-rata-distribusi-fitur-pada-keseluruhan-hewan-kategorikal-boolean">Rata rata distribusi fitur pada keseluruhan hewan (Kategorikal/Boolean)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rata-rata-distribusi-fitur-pada-keseluruhan-hewan-numerik">Rata rata distribusi fitur pada keseluruhan hewan (Numerik)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-fitur-tanpa-kaki-legs">Distribusi Fitur tanpa kaki/legs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-fitur-kaki">Distribusi fitur kaki</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengurutan-nama-hewan-berdasarkan-kaki">Pengurutan nama Hewan berdasarkan kaki</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value">Missing value</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data">Split data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-smote"><strong>Proses Smote</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smote">Smote</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi">Visualisasi</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi">Visualisasi</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">Modelling</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#support-vector-machine">Support Vector Machine</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree">Decision Tree</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regresion">Logistic Regresion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-network">Neural Network</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akurasi">Hasil Akurasi</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi">Evaluasi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Visualisasi</a></li>
 </ul>
 </li>
 </ul>
@@ -401,9 +409,139 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-understanding-zoo">
-<h1>Data Understanding - Zoo<a class="headerlink" href="#data-understanding-zoo" title="Permalink to this heading">#</a></h1>
-<p>Install library uci machine learning</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="zoo">
+<h1>Zoo<a class="headerlink" href="#zoo" title="Permalink to this heading">#</a></h1>
+<section id="business-understanding">
+<h2>Business Understanding<a class="headerlink" href="#business-understanding" title="Permalink to this heading">#</a></h2>
+<p>Tujuan utama dari proyek ini adalah mengembangkan model klasifikasi untuk mengidentifikasi kategori hewan berdasarkan fitur fitur yang ada. Hasil dari model ini dapat digunakan untuk beberapa hal seperti:</p>
+<ul class="simple">
+<li><p>Membantu ahli biologi atau peneliti dalam mengidentifikasi hewan</p></li>
+<li><p>Menyediakan alat untuk mengidentifikasi hewan sesuai spesies dan klasifikasinya</p></li>
+</ul>
+</section>
+<section id="data-understanding">
+<h2>Data Understanding<a class="headerlink" href="#data-understanding" title="Permalink to this heading">#</a></h2>
+<p>Dataset yang saya gunakan yaitu data Zoo dari website UCI Machine Learning. Data ini merupakan sebuah dataset sederhana untuk mengklasifikasikan hewan berdasarkan 17 atribut bertipe boolean dan 1 atribut numerik. Dataset yang digunakan memiliki 101 data.</p>
+<section id="penjelasan-atribut">
+<h3>Penjelasan atribut<a class="headerlink" href="#penjelasan-atribut" title="Permalink to this heading">#</a></h3>
+<p>Berikut ini adalah penjelasan atribut atribut yang digunakan</p>
+<ul class="simple">
+<li><p>Hair = Rambut <em>(Boolean)</em></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">=</span> <span class="n">Tidak</span>
+<span class="mi">1</span> <span class="o">=</span> <span class="n">Ya</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Feathers = Bulu <em>(Boolean)</em></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">=</span> <span class="n">Tidak</span>
+<span class="mi">1</span> <span class="o">=</span> <span class="n">Ya</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Eggs = Bertelur <em>(Boolean)</em></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">=</span> <span class="n">Tidak</span>
+<span class="mi">1</span> <span class="o">=</span> <span class="n">Ya</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Milk = Menyusui <em>(Boolean)</em></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">=</span> <span class="n">Tidak</span>
+<span class="mi">1</span> <span class="o">=</span> <span class="n">Ya</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Airbone = Mengudara <em>(Boolean)</em></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">=</span> <span class="n">Tidak</span>
+<span class="mi">1</span> <span class="o">=</span> <span class="n">Ya</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Aquatic = Akuatik <em>(Boolean)</em></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">=</span> <span class="n">Tidak</span>
+<span class="mi">1</span> <span class="o">=</span> <span class="n">Ya</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Predator = Predator <em>(Boolean)</em></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">=</span> <span class="n">Tidak</span>
+<span class="mi">1</span> <span class="o">=</span> <span class="n">Ya</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Toothed = Bergigi <em>(Boolean)</em></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">=</span> <span class="n">Tidak</span>
+<span class="mi">1</span> <span class="o">=</span> <span class="n">Ya</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Backbone = Tulang belakang <em>(Boolean)</em></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">=</span> <span class="n">Tidak</span>
+<span class="mi">1</span> <span class="o">=</span> <span class="n">Ya</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Breathes = Bernafas <em>(Boolean)</em></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">=</span> <span class="n">Tidak</span>
+<span class="mi">1</span> <span class="o">=</span> <span class="n">Ya</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Venomous = Beracun <em>(Boolean)</em></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">=</span> <span class="n">Tidak</span>
+<span class="mi">1</span> <span class="o">=</span> <span class="n">Ya</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Fins = Sirip <em>(Boolean)</em></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">=</span> <span class="n">Tidak</span>
+<span class="mi">1</span> <span class="o">=</span> <span class="n">Ya</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Legs = Kaki <em>(Numerical)</em></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">2</span> <span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">,</span> <span class="mi">5</span> <span class="p">,</span> <span class="mi">6</span> <span class="p">,</span> <span class="mi">7</span> <span class="p">,</span> <span class="mi">8</span> <span class="n">dst</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Tail = Berekor <em>(Boolean)</em></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">=</span> <span class="n">Tidak</span>
+<span class="mi">1</span> <span class="o">=</span> <span class="n">Ya</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Domestic = Jinak <em>(Boolean)</em></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">=</span> <span class="n">Tidak</span>
+<span class="mi">1</span> <span class="o">=</span> <span class="n">Ya</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Catsize = Ukuran kucing <em>(Boolean)</em></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">=</span> <span class="n">Tidak</span>
+<span class="mi">1</span> <span class="o">=</span> <span class="n">Ya</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="data-preparation">
+<h2>Data Preparation<a class="headerlink" href="#data-preparation" title="Permalink to this heading">#</a></h2>
+<section id="library-uci-machine-learning">
+<h3>Library uci machine learning<a class="headerlink" href="#library-uci-machine-learning" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>ucimlrepo
@@ -411,7 +549,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ucimlrepo in /usr/local/lib/python3.10/dist-packages (0.0.3)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting ucimlrepo
+  Downloading ucimlrepo-0.0.3-py3-none-any.whl (7.0 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: ucimlrepo
+Successfully installed ucimlrepo-0.0.3
 </pre></div>
 </div>
 </div>
@@ -426,10 +569,10 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="install-dataset-zoo">
-<h2>Install dataset Zoo<a class="headerlink" href="#install-dataset-zoo" title="Permalink to this heading">#</a></h2>
-<section id="web-uci-error">
-<h3>Web Uci error<a class="headerlink" href="#web-uci-error" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="install-dataset-zoo-otomatis">
+<h3>Install dataset Zoo otomatis<a class="headerlink" href="#install-dataset-zoo-otomatis" title="Permalink to this heading">#</a></h3>
+<p>Penginstallan dataset zoo ini menggunakan X sebagai data fitur dan y sebagai target. Data yang dipakai tidak memiliki missing values sehingga bisa lanjut ke tahap preprocessing selanjutnya</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ucimlrepo</span> <span class="kn">import</span> <span class="n">fetch_ucirepo</span>
@@ -451,118 +594,46 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">SSLCertVerificationError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="nn">/usr/lib/python3.10/urllib/request.py</span> in <span class="ni">do_open</span><span class="nt">(self, http_class, req, **http_conn_args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1347</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1348</span>                 <span class="n">h</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">get_method</span><span class="p">(),</span> <span class="n">req</span><span class="o">.</span><span class="n">selector</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1349</span>                           <span class="n">encode_chunked</span><span class="o">=</span><span class="n">req</span><span class="o">.</span><span class="n">has_header</span><span class="p">(</span><span class="s1">&#39;Transfer-encoding&#39;</span><span class="p">))</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;uci_id&#39;: 111, &#39;name&#39;: &#39;Zoo&#39;, &#39;repository_url&#39;: &#39;https://archive.ics.uci.edu/dataset/111/zoo&#39;, &#39;data_url&#39;: &#39;https://archive.ics.uci.edu/static/public/111/data.csv&#39;, &#39;abstract&#39;: &#39;Artificial, 7 classes of animals&#39;, &#39;area&#39;: &#39;Biology&#39;, &#39;tasks&#39;: [&#39;Classification&#39;], &#39;characteristics&#39;: [&#39;Multivariate&#39;], &#39;num_instances&#39;: 101, &#39;num_features&#39;: 16, &#39;feature_types&#39;: [&#39;Categorical&#39;, &#39;Integer&#39;], &#39;demographics&#39;: [], &#39;target_col&#39;: [&#39;type&#39;], &#39;index_col&#39;: [&#39;animal_name&#39;], &#39;has_missing_values&#39;: &#39;no&#39;, &#39;missing_values_symbol&#39;: None, &#39;year_of_dataset_creation&#39;: 1990, &#39;last_updated&#39;: &#39;Fri Sep 15 2023&#39;, &#39;dataset_doi&#39;: &#39;10.24432/C5R59V&#39;, &#39;creators&#39;: [&#39;Richard Forsyth&#39;], &#39;intro_paper&#39;: None, &#39;additional_info&#39;: {&#39;summary&#39;: &#39;A simple database containing 17 Boolean-valued attributes.  The &quot;type&quot; attribute appears to be the class attribute.  Here is a breakdown of which animals are in which type: (I find it unusual that there are 2 instances of &quot;frog&quot; and one of &quot;girl&quot;!)&#39;, &#39;purpose&#39;: None, &#39;funded_by&#39;: None, &#39;instances_represent&#39;: None, &#39;recommended_data_splits&#39;: None, &#39;sensitive_data&#39;: None, &#39;preprocessing_description&#39;: None, &#39;variable_info&#39;: &#39;   1. animal name:      Unique for each instance\r\n   2. hair:\t\tBoolean\r\n   3. feathers:\t\tBoolean\r\n   4. eggs:\t\tBoolean\r\n   5. milk:\t\tBoolean\r\n   6. airborne:\t\tBoolean\r\n   7. aquatic:\t\tBoolean\r\n   8. predator:\t\tBoolean\r\n   9. toothed:\t\tBoolean\r\n  10. backbone:\t\tBoolean\r\n  11. breathes:\t\tBoolean\r\n  12. venomous:\t\tBoolean\r\n  13. fins:\t\tBoolean\r\n  14. legs:\t\tNumeric (set of values: {0,2,4,5,6,8})\r\n  15. tail:\t\tBoolean\r\n  16. domestic:\t\tBoolean\r\n  17. catsize:\t\tBoolean\r\n  18. type:\t\tNumeric (integer values in range [1,7])&#39;, &#39;citation&#39;: None}}
+           name     role         type demographic description units  \
+0   animal_name       ID  Categorical        None        None  None   
+1          hair  Feature       Binary        None        None  None   
+2      feathers  Feature       Binary        None        None  None   
+3          eggs  Feature       Binary        None        None  None   
+4          milk  Feature       Binary        None        None  None   
+5      airborne  Feature       Binary        None        None  None   
+6       aquatic  Feature       Binary        None        None  None   
+7      predator  Feature       Binary        None        None  None   
+8       toothed  Feature       Binary        None        None  None   
+9      backbone  Feature       Binary        None        None  None   
+10     breathes  Feature       Binary        None        None  None   
+11     venomous  Feature       Binary        None        None  None   
+12         fins  Feature       Binary        None        None  None   
+13         legs  Feature  Categorical        None        None  None   
+14         tail  Feature       Binary        None        None  None   
+15     domestic  Feature       Binary        None        None  None   
+16      catsize  Feature       Binary        None        None  None   
+17         type   Target  Categorical        None        None  None   
 
-<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, body, headers, encode_chunked)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1282</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;Send a complete request to the server.&quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1283</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_send_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">encode_chunked</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1284</span> 
-
-<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">_send_request</span><span class="nt">(self, method, url, body, headers, encode_chunked)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1328</span>             <span class="n">body</span> <span class="o">=</span> <span class="n">_encode</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1329</span>         <span class="bp">self</span><span class="o">.</span><span class="n">endheaders</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">encode_chunked</span><span class="o">=</span><span class="n">encode_chunked</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1330</span> 
-
-<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">endheaders</span><span class="nt">(self, message_body, encode_chunked)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1277</span>             <span class="k">raise</span> <span class="n">CannotSendHeader</span><span class="p">()</span>
-<span class="ne">-&gt; </span><span class="mi">1278</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_send_output</span><span class="p">(</span><span class="n">message_body</span><span class="p">,</span> <span class="n">encode_chunked</span><span class="o">=</span><span class="n">encode_chunked</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1279</span> 
-
-<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">_send_output</span><span class="nt">(self, message_body, encode_chunked)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1037</span>         <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="p">[:]</span>
-<span class="ne">-&gt; </span><span class="mi">1038</span>         <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1039</span> 
-
-<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">send</span><span class="nt">(self, data)</span>
-<span class="g g-Whitespace">    </span><span class="mi">975</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_open</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">976</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">977</span>             <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">connect</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1454</span> 
-<span class="ne">-&gt; </span><span class="mi">1455</span>             <span class="bp">self</span><span class="o">.</span><span class="n">sock</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="o">.</span><span class="n">wrap_socket</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1456</span>                                                   <span class="n">server_hostname</span><span class="o">=</span><span class="n">server_hostname</span><span class="p">)</span>
-
-<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">wrap_socket</span><span class="nt">(self, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, session)</span>
-<span class="g g-Whitespace">    </span><span class="mi">512</span>         <span class="c1"># ctx._wrap_socket()</span>
-<span class="ne">--&gt; </span><span class="mi">513</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sslsocket_class</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">514</span>             <span class="n">sock</span><span class="o">=</span><span class="n">sock</span><span class="p">,</span>
-
-<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">_create</span><span class="nt">(cls, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, context, session)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1070</span>                         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;do_handshake_on_connect should not be specified for non-blocking sockets&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1071</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">do_handshake</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1072</span>             <span class="k">except</span> <span class="p">(</span><span class="ne">OSError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
-
-<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">do_handshake</span><span class="nt">(self, block)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1341</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1342</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">do_handshake</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1343</span>         <span class="k">finally</span><span class="p">:</span>
-
-<span class="ne">SSLCertVerificationError</span>: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1007)
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">URLError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">/usr/local/lib/python3.10/dist-packages/ucimlrepo/fetch.py</span> in <span class="ni">fetch_ucirepo</span><span class="nt">(name, id)</span>
-<span class="g g-Whitespace">     </span><span class="mi">65</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">66</span>         <span class="n">response</span>  <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">api_url</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">67</span>         <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-
-<span class="nn">/usr/lib/python3.10/urllib/request.py</span> in <span class="ni">urlopen</span><span class="nt">(url, data, timeout, cafile, capath, cadefault, context)</span>
-<span class="g g-Whitespace">    </span><span class="mi">215</span>         <span class="n">opener</span> <span class="o">=</span> <span class="n">_opener</span>
-<span class="ne">--&gt; </span><span class="mi">216</span>     <span class="k">return</span> <span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">217</span> 
-
-<span class="nn">/usr/lib/python3.10/urllib/request.py</span> in <span class="ni">open</span><span class="nt">(self, fullurl, data, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">518</span>         <span class="n">sys</span><span class="o">.</span><span class="n">audit</span><span class="p">(</span><span class="s1">&#39;urllib.Request&#39;</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">full_url</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">get_method</span><span class="p">())</span>
-<span class="ne">--&gt; </span><span class="mi">519</span>         <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_open</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">520</span> 
-
-<span class="nn">/usr/lib/python3.10/urllib/request.py</span> in <span class="ni">_open</span><span class="nt">(self, req, data)</span>
-<span class="g g-Whitespace">    </span><span class="mi">535</span>         <span class="n">protocol</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">type</span>
-<span class="ne">--&gt; </span><span class="mi">536</span>         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_chain</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handle_open</span><span class="p">,</span> <span class="n">protocol</span><span class="p">,</span> <span class="n">protocol</span> <span class="o">+</span>
-<span class="g g-Whitespace">    </span><span class="mi">537</span>                                   <span class="s1">&#39;_open&#39;</span><span class="p">,</span> <span class="n">req</span><span class="p">)</span>
-
-<span class="nn">/usr/lib/python3.10/urllib/request.py</span> in <span class="ni">_call_chain</span><span class="nt">(self, chain, kind, meth_name, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">495</span>             <span class="n">func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">handler</span><span class="p">,</span> <span class="n">meth_name</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">496</span>             <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">497</span>             <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">/usr/lib/python3.10/urllib/request.py</span> in <span class="ni">https_open</span><span class="nt">(self, req)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1390</span>         <span class="k">def</span> <span class="nf">https_open</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1391</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_open</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPSConnection</span><span class="p">,</span> <span class="n">req</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1392</span>                 <span class="n">context</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="p">,</span> <span class="n">check_hostname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_check_hostname</span><span class="p">)</span>
-
-<span class="nn">/usr/lib/python3.10/urllib/request.py</span> in <span class="ni">do_open</span><span class="nt">(self, http_class, req, **http_conn_args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1350</span>             <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span> <span class="c1"># timeout error</span>
-<span class="ne">-&gt; </span><span class="mi">1351</span>                 <span class="k">raise</span> <span class="n">URLError</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1352</span>             <span class="n">r</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
-
-<span class="ne">URLError</span>: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1007)&gt;
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">ConnectionError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-3-359071105ecb&gt;</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># fetch dataset</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">zoo</span> <span class="o">=</span> <span class="n">fetch_ucirepo</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">111</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># data (as pandas dataframes)</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/ucimlrepo/fetch.py</span> in <span class="ni">fetch_ucirepo</span><span class="nt">(name, id)</span>
-<span class="g g-Whitespace">     </span><span class="mi">67</span>         <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="k">except</span> <span class="p">(</span><span class="n">urllib</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">URLError</span><span class="p">,</span> <span class="n">urllib</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">HTTPError</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">69</span>         <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="s1">&#39;Error connecting to server&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">70</span> 
-<span class="g g-Whitespace">     </span><span class="mi">71</span>     <span class="c1"># verify that dataset exists</span>
-
-<span class="ne">ConnectionError</span>: Error connecting to server
+   missing_values  
+0              no  
+1              no  
+2              no  
+3              no  
+4              no  
+5              no  
+6              no  
+7              no  
+8              no  
+9              no  
+10             no  
+11             no  
+12             no  
+13             no  
+14             no  
+15             no  
+16             no  
+17             no  
 </pre></div>
 </div>
 </div>
@@ -580,95 +651,9 @@ document.write(`
 </pre></div>
 </div>
 </div>
-</div>
-</section>
-<section id="install-manual">
-<h3>install manual<a class="headerlink" href="#install-manual" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="c1"># Path ke file-file dataset</span>
-<span class="n">index_path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/PSD/Zoo/dataset/Index&#39;</span>
-<span class="n">data_path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/PSD/Zoo/dataset/zoo.data&#39;</span>
-<span class="n">names_path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/PSD/Zoo/dataset/zoo.names&#39;</span>
-
-<span class="c1"># Membaca file data dan memberi nama kolom sesuai dengan dataset</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;animal_name&quot;</span><span class="p">,</span> <span class="s2">&quot;hair&quot;</span><span class="p">,</span> <span class="s2">&quot;feathers&quot;</span><span class="p">,</span> <span class="s2">&quot;eggs&quot;</span><span class="p">,</span> <span class="s2">&quot;milk&quot;</span><span class="p">,</span> <span class="s2">&quot;airborne&quot;</span><span class="p">,</span> <span class="s2">&quot;aquatic&quot;</span><span class="p">,</span> <span class="s2">&quot;predator&quot;</span><span class="p">,</span> <span class="s2">&quot;toothed&quot;</span><span class="p">,</span> <span class="s2">&quot;backbone&quot;</span><span class="p">,</span> <span class="s2">&quot;breathes&quot;</span><span class="p">,</span> <span class="s2">&quot;venomous&quot;</span><span class="p">,</span> <span class="s2">&quot;fins&quot;</span><span class="p">,</span> <span class="s2">&quot;legs&quot;</span><span class="p">,</span> <span class="s2">&quot;tail&quot;</span><span class="p">,</span> <span class="s2">&quot;domestic&quot;</span><span class="p">,</span> <span class="s2">&quot;catsize&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">])</span>
-
-<span class="c1"># Menampilkan nama-nama kolom</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-
-<span class="c1"># Memastikan nama kolom target yang benar</span>
-<span class="n">target_column_name</span> <span class="o">=</span> <span class="s2">&quot;type&quot;</span>
-
-<span class="c1"># Memisahkan fitur (X) dan target (y)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;animal_name&quot;</span><span class="p">,</span> <span class="n">target_column_name</span><span class="p">])</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">target_column_name</span><span class="p">]</span>
-
-<span class="c1"># Menampilkan DataFrame</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;animal_name&#39;, &#39;hair&#39;, &#39;feathers&#39;, &#39;eggs&#39;, &#39;milk&#39;, &#39;airborne&#39;,
-       &#39;aquatic&#39;, &#39;predator&#39;, &#39;toothed&#39;, &#39;backbone&#39;, &#39;breathes&#39;, &#39;venomous&#39;,
-       &#39;fins&#39;, &#39;legs&#39;, &#39;tail&#39;, &#39;domestic&#39;, &#39;catsize&#39;, &#39;type&#39;],
-      dtype=&#39;object&#39;)
-     hair  feathers  eggs  milk  airborne  aquatic  predator  toothed  \
-0       1         0     0     1         0        0         1        1   
-1       1         0     0     1         0        0         0        1   
-2       0         0     1     0         0        1         1        1   
-3       1         0     0     1         0        0         1        1   
-4       1         0     0     1         0        0         1        1   
-..    ...       ...   ...   ...       ...      ...       ...      ...   
-96      1         0     0     1         0        0         0        1   
-97      1         0     1     0         1        0         0        0   
-98      1         0     0     1         0        0         1        1   
-99      0         0     1     0         0        0         0        0   
-100     0         1     1     0         1        0         0        0   
-
-     backbone  breathes  venomous  fins  legs  tail  domestic  catsize  
-0           1         1         0     0     4     0         0        1  
-1           1         1         0     0     4     1         0        1  
-2           1         0         0     1     0     1         0        0  
-3           1         1         0     0     4     0         0        1  
-4           1         1         0     0     4     1         0        1  
-..        ...       ...       ...   ...   ...   ...       ...      ...  
-96          1         1         0     0     2     1         0        1  
-97          0         1         1     0     6     0         0        0  
-98          1         1         0     0     4     1         0        1  
-99          0         1         0     0     0     0         0        0  
-100         1         1         0     0     2     1         0        0  
-
-[101 rows x 16 columns]
-0      1
-1      1
-2      4
-3      1
-4      1
-      ..
-96     1
-97     6
-98     1
-99     7
-100    2
-Name: type, Length: 101, dtype: int64
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
-</pre></div>
-</div>
-</div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-cd654a0d-c8a8-4861-9028-d800e2f5dd78" class="colab-df-container">
+  <div id="df-4c2ccaf9-e911-4993-b48c-856746ab2edd" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -944,17 +929,17 @@ Name: type, Length: 101, dtype: int64
 <p>101 rows × 18 columns</p>
 </div>
     <div class="colab-df-buttons">
-
+      
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-cd654a0d-c8a8-4861-9028-d800e2f5dd78')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-4c2ccaf9-e911-4993-b48c-856746ab2edd')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-
+      
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-
+    
   <style>
     .colab-df-container {
       display:flex;
@@ -998,12 +983,12 @@ Name: type, Length: 101, dtype: int64
 
     <script>
       const buttonEl =
-        document.querySelector('#df-cd654a0d-c8a8-4861-9028-d800e2f5dd78 button.colab-df-convert');
+        document.querySelector('#df-4c2ccaf9-e911-4993-b48c-856746ab2edd button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-cd654a0d-c8a8-4861-9028-d800e2f5dd78');
+        const element = document.querySelector('#df-4c2ccaf9-e911-4993-b48c-856746ab2edd');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1021,142 +1006,469 @@ Name: type, Length: 101, dtype: int64
       }
     </script>
   </div>
-
-
-<div id="df-9ae22e1c-8393-4dc1-a63b-afa2ab4d8c36">
-  <button class="colab-df-quickchart" onclick="quickchart('df-9ae22e1c-8393-4dc1-a63b-afa2ab4d8c36')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-9ae22e1c-8393-4dc1-a63b-afa2ab4d8c36 button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
+  
     </div>
   </div>
-</div></div>
+  </div></div>
 </div>
 </section>
+<section id="install-dataset-zoo-manual">
+<h3>Install dataset Zoo Manual<a class="headerlink" href="#install-dataset-zoo-manual" title="Permalink to this heading">#</a></h3>
+<p>Adanya penginstalan dataset manual dilakukan karena terkadang website UCI Machine Learning mengalami error sehinga memiliki cara kedua untuk menggunakan datasetnya.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Path ke file-file dataset</span>
+<span class="n">index_path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/PSD/Zoo/dataset/Index&#39;</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/PSD/Zoo/dataset/zoo.data&#39;</span>
+<span class="n">names_path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/PSD/Zoo/dataset/zoo.names&#39;</span>
+
+<span class="c1"># Membaca file data dan memberi nama kolom sesuai dengan dataset</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;animal_name&quot;</span><span class="p">,</span> <span class="s2">&quot;hair&quot;</span><span class="p">,</span> <span class="s2">&quot;feathers&quot;</span><span class="p">,</span> <span class="s2">&quot;eggs&quot;</span><span class="p">,</span> <span class="s2">&quot;milk&quot;</span><span class="p">,</span> <span class="s2">&quot;airborne&quot;</span><span class="p">,</span> <span class="s2">&quot;aquatic&quot;</span><span class="p">,</span> <span class="s2">&quot;predator&quot;</span><span class="p">,</span> <span class="s2">&quot;toothed&quot;</span><span class="p">,</span> <span class="s2">&quot;backbone&quot;</span><span class="p">,</span> <span class="s2">&quot;breathes&quot;</span><span class="p">,</span> <span class="s2">&quot;venomous&quot;</span><span class="p">,</span> <span class="s2">&quot;fins&quot;</span><span class="p">,</span> <span class="s2">&quot;legs&quot;</span><span class="p">,</span> <span class="s2">&quot;tail&quot;</span><span class="p">,</span> <span class="s2">&quot;domestic&quot;</span><span class="p">,</span> <span class="s2">&quot;catsize&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">])</span>
+
+<span class="c1"># Menampilkan nama-nama kolom</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="c1"># Memastikan nama kolom target yang benar</span>
+<span class="n">target_column_name</span> <span class="o">=</span> <span class="s2">&quot;type&quot;</span>
+
+<span class="c1"># Memisahkan fitur (X) dan target (y)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;animal_name&quot;</span><span class="p">,</span> <span class="n">target_column_name</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">target_column_name</span><span class="p">]</span>
+
+<span class="c1"># Menampilkan DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;animal_name&#39;, &#39;hair&#39;, &#39;feathers&#39;, &#39;eggs&#39;, &#39;milk&#39;, &#39;airborne&#39;,
+       &#39;aquatic&#39;, &#39;predator&#39;, &#39;toothed&#39;, &#39;backbone&#39;, &#39;breathes&#39;, &#39;venomous&#39;,
+       &#39;fins&#39;, &#39;legs&#39;, &#39;tail&#39;, &#39;domestic&#39;, &#39;catsize&#39;, &#39;type&#39;],
+      dtype=&#39;object&#39;)
+     hair  feathers  eggs  milk  airborne  aquatic  predator  toothed  \
+0       1         0     0     1         0        0         1        1   
+1       1         0     0     1         0        0         0        1   
+2       0         0     1     0         0        1         1        1   
+3       1         0     0     1         0        0         1        1   
+4       1         0     0     1         0        0         1        1   
+..    ...       ...   ...   ...       ...      ...       ...      ...   
+96      1         0     0     1         0        0         0        1   
+97      1         0     1     0         1        0         0        0   
+98      1         0     0     1         0        0         1        1   
+99      0         0     1     0         0        0         0        0   
+100     0         1     1     0         1        0         0        0   
+
+     backbone  breathes  venomous  fins  legs  tail  domestic  catsize  
+0           1         1         0     0     4     0         0        1  
+1           1         1         0     0     4     1         0        1  
+2           1         0         0     1     0     1         0        0  
+3           1         1         0     0     4     0         0        1  
+4           1         1         0     0     4     1         0        1  
+..        ...       ...       ...   ...   ...   ...       ...      ...  
+96          1         1         0     0     2     1         0        1  
+97          0         1         1     0     6     0         0        0  
+98          1         1         0     0     4     1         0        1  
+99          0         1         0     0     0     0         0        0  
+100         1         1         0     0     2     1         0        0  
+
+[101 rows x 16 columns]
+0      1
+1      1
+2      4
+3      1
+4      1
+      ..
+96     1
+97     6
+98     1
+99     7
+100    2
+Name: type, Length: 101, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-819a428f-b764-413e-a684-9743c59718dd" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>animal_name</th>
+      <th>hair</th>
+      <th>feathers</th>
+      <th>eggs</th>
+      <th>milk</th>
+      <th>airborne</th>
+      <th>aquatic</th>
+      <th>predator</th>
+      <th>toothed</th>
+      <th>backbone</th>
+      <th>breathes</th>
+      <th>venomous</th>
+      <th>fins</th>
+      <th>legs</th>
+      <th>tail</th>
+      <th>domestic</th>
+      <th>catsize</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>aardvark</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>antelope</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>bass</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>bear</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>boar</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>wallaby</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>wasp</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>wolf</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>worm</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>wren</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+<p>101 rows × 18 columns</p>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-819a428f-b764-413e-a684-9743c59718dd')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-819a428f-b764-413e-a684-9743c59718dd button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-819a428f-b764-413e-a684-9743c59718dd');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+<p>Simpan ke CSV</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;datazoo.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="kelompok-hewan-berdasarkan-tipe-type">
-<h2>Kelompok hewan berdasarkan Tipe/type<a class="headerlink" href="#kelompok-hewan-berdasarkan-tipe-type" title="Permalink to this heading">#</a></h2>
+<section id="mapping-kelas-hewan">
+<h3>Mapping kelas hewan<a class="headerlink" href="#mapping-kelas-hewan" title="Permalink to this heading">#</a></h3>
+<p>Kode dibawah ini dilakukan untuk mengetahui hewan apa saja dan berapa jumlah setiap hewan di kelompok nya masing masing (berdasarkan tipe)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kelompokkan data berdasarkan kolom &#39;type&#39;</span>
@@ -1216,122 +1528,9 @@ Nama binatang: [&#39;clam&#39; &#39;crab&#39; &#39;crayfish&#39; &#39;lobster&#3
 </div>
 </div>
 </section>
-<section id="melihat-fitur-yang-ada-pada-hewan">
-<h2><strong>Melihat fitur yang ada pada hewan</strong><a class="headerlink" href="#melihat-fitur-yang-ada-pada-hewan" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Hair = Rambut <em>(Boolean)</em></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 = Tidak</span>
-<span class="c1"># 1 = Ya</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Feathers = Bulu <em>(Boolean)</em></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 = Tidak</span>
-<span class="c1"># 1 = Ya</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Eggs = Bertelur <em>(Boolean)</em></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 = Tidak</span>
-<span class="c1"># 1 = Ya</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Milk = Menyusui <em>(Boolean)</em></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 = Tidak</span>
-<span class="c1"># 1 = Ya</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Airbone = Mengudara <em>(Boolean)</em></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 = Tidak</span>
-<span class="c1"># 1 = Ya</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Aquatic = Akuatik <em>(Boolean)</em></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 = Tidak</span>
-<span class="c1"># 1 = Ya</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Predator = Predator <em>(Boolean)</em></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 = Tidak</span>
-<span class="c1"># 1 = Ya</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Toothed = Bergigi <em>(Boolean)</em></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 = Tidak</span>
-<span class="c1"># 1 = Ya</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Backbone = Tulang belakang <em>(Boolean)</em></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 = Tidak</span>
-<span class="c1"># 1 = Ya</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Breathes = Bernafas <em>(Boolean)</em></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 = Tidak</span>
-<span class="c1"># 1 = Ya</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Venomous = Beracun <em>(Boolean)</em></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 = Tidak</span>
-<span class="c1"># 1 = Ya</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Fins = Sirip <em>(Boolean)</em></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 = Tidak</span>
-<span class="c1"># 1 = Ya</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Legs = Kaki <em>(Numerical)</em></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 , 1 , 2 , 3, 4 , 5 , 6 , 7 , 8 dst</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Tail = Berekor <em>(Boolean)</em></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 = Tidak</span>
-<span class="c1"># 1 = Ya</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Domestic = Jinak <em>(Boolean)</em></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 = Tidak</span>
-<span class="c1"># 1 = Ya</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Catsize = Ukuran kucing <em>(Boolean)</em></p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 = Tidak</span>
-<span class="c1"># 1 = Ya</span>
-</pre></div>
-</div>
-</section>
-<section id="rata-rata-fitur-tiap-hewan">
-<h2>Rata rata fitur tiap hewan<a class="headerlink" href="#rata-rata-fitur-tiap-hewan" title="Permalink to this heading">#</a></h2>
+<section id="rata-rata-distribusi-fitur-pada-keseluruhan-hewan-kategorikal-boolean">
+<h3>Rata rata distribusi fitur pada keseluruhan hewan (Kategorikal/Boolean)<a class="headerlink" href="#rata-rata-distribusi-fitur-pada-keseluruhan-hewan-kategorikal-boolean" title="Permalink to this heading">#</a></h3>
+<p>Kode ini digunakan untuk melihat fitur apa saja yang sering muncul pada setiap hewan yang ada di tipe kategorikal</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung jumlah hewan dalam tipe tersebut yang memiliki nilai setiap fitur</span>
@@ -1362,9 +1561,10 @@ Nama binatang: [&#39;clam&#39; &#39;crab&#39; &#39;crayfish&#39; &#39;lobster&#3
 <img alt="_images/20e6583be1d7dc5225c7052a090063da33a3cadeb20523e8510046c6e9880851.png" src="_images/20e6583be1d7dc5225c7052a090063da33a3cadeb20523e8510046c6e9880851.png" />
 </div>
 </div>
+<p>Terlihat fitur yang mendominasi di tipe kategorikal terdapat pada backbone atau hewan bertulang belakang sekitar 80, breathes atau hewan yang bernafas sekitar 80 juga dan juga tail yaitu hewan yang memiliki ekor sekitar 75 keatas</p>
 </section>
-<section id="menghitung-hewan-berdasarkan-kaki">
-<h2>Menghitung hewan berdasarkan kaki<a class="headerlink" href="#menghitung-hewan-berdasarkan-kaki" title="Permalink to this heading">#</a></h2>
+<section id="rata-rata-distribusi-fitur-pada-keseluruhan-hewan-numerik">
+<h3>Rata rata distribusi fitur pada keseluruhan hewan (Numerik)<a class="headerlink" href="#rata-rata-distribusi-fitur-pada-keseluruhan-hewan-numerik" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung jumlah hewan dengan nilai legs tertentu</span>
@@ -1392,13 +1592,17 @@ Nama binatang: [&#39;clam&#39; &#39;crab&#39; &#39;crayfish&#39; &#39;lobster&#3
 <img alt="_images/f2874aebaa6367519e77829e42dae21582ca033cfaf8325d601ac790211130f0.png" src="_images/f2874aebaa6367519e77829e42dae21582ca033cfaf8325d601ac790211130f0.png" />
 </div>
 </div>
+<p>Pada distribusi kaki ini, terlihat bahwa data dominan dengan hewan berkaki 4 berjumlah 38 hewan dan data yang paling sedikit yaitu hewan yang berkaki 5 yang hanya berjumlah 1</p>
 </section>
 <section id="distribusi-fitur-tanpa-kaki-legs">
-<h2>Distribusi Fitur tanpa kaki/legs<a class="headerlink" href="#distribusi-fitur-tanpa-kaki-legs" title="Permalink to this heading">#</a></h2>
-<p>Melihat fitur yang ada pada setiap tipe hewan tanpa label legs(Numerik)</p>
+<h3>Distribusi Fitur tanpa kaki/legs<a class="headerlink" href="#distribusi-fitur-tanpa-kaki-legs" title="Permalink to this heading">#</a></h3>
+<p>Melihat fitur yang ada pada setiap <strong>tipe</strong> hewan tanpa label legs(Numerik)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung jumlah tipe yang ada (1 sampai 7)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Menghitung jumlah tipe yang ada (1 sampai 7)</span>
 <span class="n">types</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 
 <span class="c1"># Dictionary untuk mapping tipe ke nama</span>
@@ -1417,10 +1621,13 @@ Nama binatang: [&#39;clam&#39; &#39;crab&#39; &#39;crayfish&#39; &#39;lobster&#3
     <span class="c1"># Memfilter hanya baris dengan tipe tertentu</span>
     <span class="n">filtered_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">tipe</span><span class="p">]</span>
 
-    <span class="c1"># Menghitung jumlah hewan dalam tipe tersebut yang memiliki nilai setiap fitur</span>
-    <span class="n">fitur_counts</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;animal_name&#39;</span><span class="p">,</span><span class="s1">&#39;legs&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span><span class="o">.</span><span class="n">T</span>
+    <span class="c1"># Menghitung jumlah hewan dalam tipe tersebut</span>
+    <span class="n">jumlah_hewan</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered_data</span><span class="p">)</span>
 
-    <span class="c1"># Membuat diagram batang dengan tipe yang mirip dengan histogram</span>
+    <span class="c1"># Menghitung jumlah hewan dalam tipe tersebut yang memiliki nilai setiap fitur</span>
+    <span class="n">fitur_counts</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;animal_name&#39;</span><span class="p">,</span> <span class="s1">&#39;legs&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span><span class="o">.</span><span class="n">T</span>
+
+    <span class="c1"># Membuat diagram batang</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
     <span class="n">bar_width</span> <span class="o">=</span> <span class="mf">0.35</span>
     <span class="n">bar_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;skyblue&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">fitur_counts</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>  <span class="c1"># Menggunakan warna sky blue untuk semua batang</span>
@@ -1431,7 +1638,7 @@ Nama binatang: [&#39;clam&#39; &#39;crab&#39; &#39;crayfish&#39; &#39;lobster&#3
 
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Nama Fitur&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Jumlah Hewan&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Distribusi Fitur pada Hewan dengan Tipe </span><span class="si">{</span><span class="n">tipe</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">tipe_to_nama</span><span class="p">[</span><span class="n">tipe</span><span class="p">]</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>  <span class="c1"># Menambahkan nama tipe</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Distribusi Fitur pada Hewan dengan Tipe </span><span class="si">{</span><span class="n">tipe</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">tipe_to_nama</span><span class="p">[</span><span class="n">tipe</span><span class="p">]</span><span class="si">}</span><span class="s1">) - Jumlah Hewan: </span><span class="si">{</span><span class="n">jumlah_hewan</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># Menambahkan jumlah hewan pada judul</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">bar_positions</span><span class="p">,</span> <span class="n">fitur_counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
@@ -1440,18 +1647,28 @@ Nama binatang: [&#39;clam&#39; &#39;crab&#39; &#39;crayfish&#39; &#39;lobster&#3
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cd7f30c9acfef584b2df49bdb4704df708ef9590dbab30627c92dd8a39d355d2.png" src="_images/cd7f30c9acfef584b2df49bdb4704df708ef9590dbab30627c92dd8a39d355d2.png" />
-<img alt="_images/40ba96dfb76d93bccf2d29aee5159b1af4d24504b0034c1213846236b3789a3e.png" src="_images/40ba96dfb76d93bccf2d29aee5159b1af4d24504b0034c1213846236b3789a3e.png" />
-<img alt="_images/baa8f401513c1b7af8d2e2990c1e3f5ac68dd2045aa5bb87d53fd46eb34b39cf.png" src="_images/baa8f401513c1b7af8d2e2990c1e3f5ac68dd2045aa5bb87d53fd46eb34b39cf.png" />
-<img alt="_images/b648a416a8bcdf6e3546a33f11f10d26acdc4dce32eae5ddda761837fadbd0e3.png" src="_images/b648a416a8bcdf6e3546a33f11f10d26acdc4dce32eae5ddda761837fadbd0e3.png" />
-<img alt="_images/93c4bf60540a9f4647bd3a76926f2db04378ee18529085916bdd15b500e8b73d.png" src="_images/93c4bf60540a9f4647bd3a76926f2db04378ee18529085916bdd15b500e8b73d.png" />
-<img alt="_images/50a0fdfa713c9c06f1081cb0c80e8bf95b0bc53f2882f82fe520f412e3eef69d.png" src="_images/50a0fdfa713c9c06f1081cb0c80e8bf95b0bc53f2882f82fe520f412e3eef69d.png" />
-<img alt="_images/1fbba05a97a14235c251f05a4e44bc2331b195872096045acd87121f0ff1a602.png" src="_images/1fbba05a97a14235c251f05a4e44bc2331b195872096045acd87121f0ff1a602.png" />
+<img alt="_images/5796991f0bead96636706f71c712fb86b0c477578f104aae402c55944e0e9ae0.png" src="_images/5796991f0bead96636706f71c712fb86b0c477578f104aae402c55944e0e9ae0.png" />
+<img alt="_images/3aa1945de1271915d3848865ea1d6d2f3dfeb2046332891e93fed9e037abbd2c.png" src="_images/3aa1945de1271915d3848865ea1d6d2f3dfeb2046332891e93fed9e037abbd2c.png" />
+<img alt="_images/5502038187b8890a4cceb8fba8ddb5355483a28b61bd3cbf2f0a955b9fff915d.png" src="_images/5502038187b8890a4cceb8fba8ddb5355483a28b61bd3cbf2f0a955b9fff915d.png" />
+<img alt="_images/47cd4de2d0feef9da44955714044c6c88491562aa7b8565f7ae3ed2a53abf579.png" src="_images/47cd4de2d0feef9da44955714044c6c88491562aa7b8565f7ae3ed2a53abf579.png" />
+<img alt="_images/f7bb2bdd893774491af2d4f5d9dc2774f2370a3188cf7a7516caad385a1b7bd4.png" src="_images/f7bb2bdd893774491af2d4f5d9dc2774f2370a3188cf7a7516caad385a1b7bd4.png" />
+<img alt="_images/6efd43d7c5f078bf545cec8014e08ec0c28a1409edb14b2c4a64374139290b8c.png" src="_images/6efd43d7c5f078bf545cec8014e08ec0c28a1409edb14b2c4a64374139290b8c.png" />
+<img alt="_images/d5df0578895d386c5981e76ce08fd47c3c608f2d99fd32e8eb0029f050591bef.png" src="_images/d5df0578895d386c5981e76ce08fd47c3c608f2d99fd32e8eb0029f050591bef.png" />
 </div>
 </div>
+<p>Sedikit kesimpulan yang dapat diambil dari grafik diatas setiap tipe</p>
+<ul class="simple">
+<li><p>Tipe 1 : Hewan mamalia didominasi dengan 3 data tertinggi bahwa mereka bernafas, memiliki tulang belakang, dan menyusui</p></li>
+<li><p>Tipe 2 : Hewan unggas/burung yang didominasi dengan 5 data tertinggi yaitu mereka berbulu, bertelur, bertulang belakang, bernafas, dan memiliki ekor</p></li>
+<li><p>Tipe 3 : Hewan reptil yang didominasi dengan 2 data tertinggi yaitu bertulang belakang dan memiliki ekor</p></li>
+<li><p>Tipe 4 : Hewan dengan tipe ikan yang didominasi dengan 6 data tertinggi yaitu mereka bertelur, hidup di air, bergigi, bertulang belakang, bersirip dan memiliki ekor</p></li>
+<li><p>Tipe 5 : Hewan Amfibi memiliki 5 dominasi data tertinggi yaitu mereka bertelur, hidup di air, bergigi, bertulang belakang dan bernafas</p></li>
+<li><p>Tipe 6 : Hewan serangga memiliki 2 dominasi data tertinggi yaitu mereka bertelur dan bernafas</p></li>
+<li><p>Tipe 7 : Hewan moluska tidak memiliki data yang dimiliki oleh semua hewan di tipe tersebut namun ada data yang tinggi seperti mereka bertelur.</p></li>
+</ul>
 </section>
 <section id="distribusi-fitur-kaki">
-<h2>Distribusi fitur kaki<a class="headerlink" href="#distribusi-fitur-kaki" title="Permalink to this heading">#</a></h2>
+<h3>Distribusi fitur kaki<a class="headerlink" href="#distribusi-fitur-kaki" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung jumlah tipe yang ada (1 sampai 7)</span>
@@ -1502,9 +1719,19 @@ Nama binatang: [&#39;clam&#39; &#39;crab&#39; &#39;crayfish&#39; &#39;lobster&#3
 <img alt="_images/181cb31955ffd04d961729f1abe0cb30ce405f5544cef2e3899c4fc88303c896.png" src="_images/181cb31955ffd04d961729f1abe0cb30ce405f5544cef2e3899c4fc88303c896.png" />
 </div>
 </div>
+<ul class="simple">
+<li><p>Tipe 1 : Hewan mamalia ada yang tidak memiliki kaki, ada yang 2 kaki, lalu ada yang 4 kaki</p></li>
+<li><p>Tipe 2 : Burung/Unggas rata dengan kaki berjumlah 2</p></li>
+<li><p>Tipe 3 : Reptil ada yang tidak memiliki kaki lalu ada yang memiliki 4 kaki</p></li>
+<li><p>Tipe 4 : Ikan tidak ada yang memiliki kaki</p></li>
+<li><p>Tipe 5 : Amfibi memiliki 4 jumlah kaki</p></li>
+<li><p>Tipe 6 : Serangga memiliki 6 kaki</p></li>
+<li><p>Tipe 7 : Moluska / binatang laut memiliki kaki yang beragam seperti ada yang tidak memiliki kaki, ada yang berkaki 4, 5, 6, dan 8</p></li>
+</ul>
 </section>
 <section id="pengurutan-nama-hewan-berdasarkan-kaki">
-<h2>Pengurutan nama Hewan berdasarkan kaki<a class="headerlink" href="#pengurutan-nama-hewan-berdasarkan-kaki" title="Permalink to this heading">#</a></h2>
+<h3>Pengurutan nama Hewan berdasarkan kaki<a class="headerlink" href="#pengurutan-nama-hewan-berdasarkan-kaki" title="Permalink to this heading">#</a></h3>
+<p>Kode yang ada dibawah ini dibuat agar bisa mengetahui apa saja hewan yang terlibat dalam pengenalan dataset hewan apa saja yang punya kaki atau tidak.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung jumlah tipe yang ada (1 sampai 7)</span>
@@ -1606,9 +1833,9 @@ Binatang: octopus, scorpion
 </div>
 </div>
 </section>
-<section id="smote-metode-untuk-duplikasi">
-<h2><strong>Smote metode untuk duplikasi</strong><a class="headerlink" href="#smote-metode-untuk-duplikasi" title="Permalink to this heading">#</a></h2>
-<p>Cek apakah ada missing value</p>
+<section id="missing-value">
+<h3>Missing value<a class="headerlink" href="#missing-value" title="Permalink to this heading">#</a></h3>
+<p>Cek apakah ada missing value pada dataset</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>  <span class="c1"># Menampilkan jumlah missing value untuk setiap kolom</span>
@@ -1637,13 +1864,14 @@ dtype: int64
 </div>
 </div>
 </div>
+</section>
 <hr class="docutils" />
 <section id="split-data">
 <h3>Split data<a class="headerlink" href="#split-data" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">imblearn.over_sampling</span> <span class="kn">import</span> <span class="n">SMOTE</span>
+
 
 <span class="c1"># Pembagian data menjadi data latih dan data uji (80% data latih, 20% data uji)</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
@@ -1687,24 +1915,14 @@ Name: type, Length: 80, dtype: int64
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(80,)
-</pre></div>
-</div>
-</div>
-</div>
 </section>
-<section id="proses-smote">
-<h3><strong>Proses Smote</strong><a class="headerlink" href="#proses-smote" title="Permalink to this heading">#</a></h3>
+<section id="smote">
+<h3>Smote<a class="headerlink" href="#smote" title="Permalink to this heading">#</a></h3>
+<p>Smote atau Synthetic Minority Over-sampling Technique yaitu metode oversampling yang digunakan untuk menangani ketidakseimbangan kelas dalam masalah klasifikasi. Pada dataset Zoo dilakukan SMOTE karena datanya yang tidak balance dan dapat dilihat pada visualisasi dibawah sebagai perbandingan data yang tidak balance atau sebelum di SMOTE dengan data yang sudah di SMOTE sehingga menjadi balance</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># smote data untuk memberi data sintetis</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">imblearn.over_sampling</span> <span class="kn">import</span> <span class="n">SMOTE</span>
+<span class="c1"># smote data untuk memberi data sintetis</span>
 <span class="n">smote</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span><span class="n">k_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">X_train_resampled</span><span class="p">,</span> <span class="n">y_train_resampled</span> <span class="o">=</span> <span class="n">smote</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
@@ -1736,9 +1954,8 @@ Name: type, Length: 80, dtype: int64
 </div>
 </div>
 </section>
-</section>
 <section id="visualisasi">
-<h2>Visualisasi<a class="headerlink" href="#visualisasi" title="Permalink to this heading">#</a></h2>
+<h3>Visualisasi<a class="headerlink" href="#visualisasi" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -1771,30 +1988,18 @@ Name: type, Length: 80, dtype: int64
 <img alt="_images/8d62814d03e5c73e8e1145fdd7a374c1e628d46577ade02445b78f1d76343e2e.png" src="_images/8d62814d03e5c73e8e1145fdd7a374c1e628d46577ade02445b78f1d76343e2e.png" />
 </div>
 </div>
-<p>KNN</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from sklearn.neighbors import KNeighborsClassifier</span>
-<span class="c1"># from sklearn.metrics import accuracy_score</span>
-
-<span class="c1"># # Menggunakan KNN K=3</span>
-<span class="c1"># knn = KNeighborsClassifier(n_neighbors=3)</span>
-<span class="c1"># knn.fit(X_train, y_train.values.ravel())</span>
-
-<span class="c1"># # Prediksi pada data</span>
-<span class="c1"># knn_predict = knn.predict(X_test)</span>
-<span class="c1"># # knn_predict</span>
-<span class="c1"># # Akurasi pada data</span>
-<span class="c1"># knn_accuracy = accuracy_score(y_test,knn_predict)</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Diagram batang biru merupakan data yang belum di balance sedangkan diagram batang kuning merupakan data yang sudah balance.</p>
+</section>
 </section>
 <section id="modelling">
 <h2>Modelling<a class="headerlink" href="#modelling" title="Permalink to this heading">#</a></h2>
 <section id="random-forest">
 <h3>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this heading">#</a></h3>
+<p>Rumus umum Random Forest
+$<span class="math notranslate nohighlight">\(f(x) = \text{sign}\left(\frac{1}{N} \sum_{i=1}^{N} f_i(x) - \theta\right)
+\)</span><span class="math notranslate nohighlight">\(
+Dengan penjelasan:
+\)</span><span class="math notranslate nohighlight">\(\\\ N \text{ adalah jumlah pohon dalam hutan, } \\\ f_i(x) \text{ adalah prediksi dari pohon ke-} i,\\\ \text{ dan } \theta \text{ adalah ambang batas (threshold).}\)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
@@ -1804,30 +2009,26 @@ Name: type, Length: 80, dtype: int64
 <span class="c1"># Membangun model Random Forest Classifier</span>
 <span class="n">rf_clf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">rf_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_resampled</span><span class="p">,</span> <span class="n">y_train_resampled</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
-
-<span class="c1"># Melakukan prediksi pada data uji</span>
-<span class="n">rf_predictions</span> <span class="o">=</span> <span class="n">rf_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-
-<span class="c1"># Menghitung akurasi dan menampilkan laporan klasifikasi</span>
-<span class="n">rf_accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">rf_predictions</span><span class="p">)</span>
-<span class="n">rf_report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">rf_predictions</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>RandomForestClassifier(random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">RandomForestClassifier</label><div class="sk-toggleable__content"><pre>RandomForestClassifier(random_state=42)</pre></div></div></div></div></div></div></div>
 </div>
 </section>
 <section id="support-vector-machine">
 <h3>Support Vector Machine<a class="headerlink" href="#support-vector-machine" title="Permalink to this heading">#</a></h3>
+<p>Rumus umum pada SVM adalah</p>
+<div class="math notranslate nohighlight">
+\[\text{SVM: } f(x) = \text{sign}\left(\sum_{i=1}^{N} \alpha_i y_i K(x, x_i) + b\right)\]</div>
+<p>dengan penjelasan</p>
+<p>\begin{align*}
+f(x) &amp; : \text{Fungsi keputusan SVM untuk input } x \
+\alpha_i &amp; : \text{Bobot yang diberikan kepada sampel pelatihan ke-} i \
+y_i &amp; : \text{Kelas dari sampel pelatihan ke-} i \
+K(x, x_i) &amp; : \text{Fungsi kernel yang mengukur “kedekatan” antara } x \text{ dan } x_i \
+b &amp; : \text{Bias atau penyesuaian}
+\end{align*}</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
@@ -1835,30 +2036,24 @@ Name: type, Length: 80, dtype: int64
 <span class="c1"># Membangun model SVM untuk klasifikasi</span>
 <span class="n">svm_clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">44</span><span class="p">)</span>
 <span class="n">svm_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_resampled</span><span class="p">,</span> <span class="n">y_train_resampled</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
-
-<span class="c1"># Melakukan prediksi pada data uji</span>
-<span class="n">svm_predictions</span> <span class="o">=</span> <span class="n">svm_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-
-<span class="c1"># Menghitung akurasi dan menampilkan laporan klasifikasi</span>
-<span class="n">svm_accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">svm_predictions</span><span class="p">)</span>
-<span class="n">svm_report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">svm_predictions</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><style>#sk-container-id-2 {color: black;background-color: white;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>SVC(random_state=44)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">SVC</label><div class="sk-toggleable__content"><pre>SVC(random_state=44)</pre></div></div></div></div></div></div></div>
 </div>
 </section>
 <section id="decision-tree">
 <h3>Decision Tree<a class="headerlink" href="#decision-tree" title="Permalink to this heading">#</a></h3>
+<p>Rumus umum Decision Tree:
+$<span class="math notranslate nohighlight">\(
+f(x) = \text{sign}\left(\text{Node}(x) - \theta\right)
+\)</span><span class="math notranslate nohighlight">\(
+Dengan penjelasan:
+\)</span><span class="math notranslate nohighlight">\(
+\text{Node}(x):\text{Fungsi keputusan pohon keputusan untuk input } x
+\\\ \theta: \text{ adalah ambang batas (threshold).}
+\)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
@@ -1867,30 +2062,28 @@ Name: type, Length: 80, dtype: int64
 <span class="c1"># Membangun model Decision Tree untuk klasifikasi</span>
 <span class="n">decision_tree_clf</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">decision_tree_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_resampled</span><span class="p">,</span> <span class="n">y_train_resampled</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
-
-<span class="c1"># Melakukan prediksi pada data uji</span>
-<span class="n">decision_tree_predictions</span> <span class="o">=</span> <span class="n">decision_tree_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-
-<span class="c1"># Menghitung akurasi dan menampilkan laporan klasifikasi</span>
-<span class="n">decision_tree_accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">decision_tree_predictions</span><span class="p">)</span>
-<span class="n">dt_report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">decision_tree_predictions</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><style>#sk-container-id-3 {color: black;background-color: white;}#sk-container-id-3 pre{padding: 0;}#sk-container-id-3 div.sk-toggleable {background-color: white;}#sk-container-id-3 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-3 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-3 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-3 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-3 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-3 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-3 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-3 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-3 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-3 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-3 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-3 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-3 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-3 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-3 div.sk-item {position: relative;z-index: 1;}#sk-container-id-3 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-3 div.sk-item::before, #sk-container-id-3 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-3 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-3 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-3 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-3 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-3 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-3 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-3 div.sk-label-container {text-align: center;}#sk-container-id-3 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-3 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>DecisionTreeClassifier(random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" checked><label for="sk-estimator-id-3" class="sk-toggleable__label sk-toggleable__label-arrow">DecisionTreeClassifier</label><div class="sk-toggleable__content"><pre>DecisionTreeClassifier(random_state=42)</pre></div></div></div></div></div></div></div>
 </div>
 </section>
 <section id="logistic-regresion">
 <h3>Logistic Regresion<a class="headerlink" href="#logistic-regresion" title="Permalink to this heading">#</a></h3>
+<p>Rumus umum Logistic Regression:
+$<span class="math notranslate nohighlight">\(
+f(x) = \frac{1}{1 + \exp(-\left(\sum_{i=1}^{N} w_i x_i + b\right))}
+\)</span><span class="math notranslate nohighlight">\(
+Dengan penjelasan:
+\)</span><span class="math notranslate nohighlight">\(
+\begin{align*}
+f(x) &amp; : \text{Fungsi keputusan Logistic Regression untuk input } x \\
+w_i &amp; : \text{Bobot input ke-} i \\
+x_i &amp; : \text{Input ke-} i \\
+b &amp; : \text{Bias}
+\end{align*}
+\)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
@@ -1899,30 +2092,31 @@ Name: type, Length: 80, dtype: int64
 <span class="c1"># Membangun model Logistic Regression untuk klasifikasi</span>
 <span class="n">logistic_reg_clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 <span class="n">logistic_reg_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_resampled</span><span class="p">,</span> <span class="n">y_train_resampled</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
-
-<span class="c1"># Melakukan prediksi pada data uji</span>
-<span class="n">logistic_reg_predictions</span> <span class="o">=</span> <span class="n">logistic_reg_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-
-<span class="c1"># Menghitung akurasi dan menampilkan laporan klasifikasi</span>
-<span class="n">logistic_reg_accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">logistic_reg_predictions</span><span class="p">)</span>
-<span class="n">lg_report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">logistic_reg_predictions</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><style>#sk-container-id-4 {color: black;background-color: white;}#sk-container-id-4 pre{padding: 0;}#sk-container-id-4 div.sk-toggleable {background-color: white;}#sk-container-id-4 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-4 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-4 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-4 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-4 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-4 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-4 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-4 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-4 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-4 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-4 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-4 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-4 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-4 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-4 div.sk-item {position: relative;z-index: 1;}#sk-container-id-4 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-4 div.sk-item::before, #sk-container-id-4 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-4 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-4 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-4 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-4 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-4 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-4 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-4 div.sk-label-container {text-align: center;}#sk-container-id-4 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-4 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-4" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=1000, random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" checked><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression(max_iter=1000, random_state=42)</pre></div></div></div></div></div></div></div>
 </div>
 </section>
 <section id="neural-network">
 <h3>Neural Network<a class="headerlink" href="#neural-network" title="Permalink to this heading">#</a></h3>
+<p>Rumus umum ANN:
+$<span class="math notranslate nohighlight">\(
+f(x) = \text{sign}\left(\sum_{j=1}^{M} w_j g\left(\sum_{i=1}^{N} w_{ij} x_i + b_j\right) + b\right)
+\)</span><span class="math notranslate nohighlight">\(
+Dengan penjelasan:
+\)</span><span class="math notranslate nohighlight">\(
+\begin{align*}
+f(x) &amp; : \text{Fungsi keputusan ANN untuk input } x \\
+w_j &amp; : \text{Bobot output ke-} j \\
+g(\cdot) &amp; : \text{Fungsi aktivasi} \\
+w_{ij} &amp; : \text{Bobot input ke-} j \\
+x_i &amp; : \text{Input ke-} i \\
+b_j &amp; : \text{Bias ke-} j \\
+b &amp; : \text{Bias output}
+\end{align*}
+\)</span>$</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPClassifier</span>
@@ -1931,7 +2125,55 @@ Name: type, Length: 80, dtype: int64
 <span class="c1"># Membangun model Neural Network untuk klasifikasi</span>
 <span class="n">ann_clf</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span><span class="mi">256</span><span class="p">),</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">ann_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_resampled</span><span class="p">,</span> <span class="n">y_train_resampled</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-5 {color: black;background-color: white;}#sk-container-id-5 pre{padding: 0;}#sk-container-id-5 div.sk-toggleable {background-color: white;}#sk-container-id-5 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-5 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-5 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-5 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-5 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-5 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-5 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-5 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-5 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-5 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-5 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-5 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-5 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-5 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-5 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-5 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-5 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-5 div.sk-item {position: relative;z-index: 1;}#sk-container-id-5 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-5 div.sk-item::before, #sk-container-id-5 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-5 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-5 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-5 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-5 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-5 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-5 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-5 div.sk-label-container {text-align: center;}#sk-container-id-5 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-5 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-5" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>MLPClassifier(hidden_layer_sizes=(512, 256), max_iter=1000, random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" checked><label for="sk-estimator-id-5" class="sk-toggleable__label sk-toggleable__label-arrow">MLPClassifier</label><div class="sk-toggleable__content"><pre>MLPClassifier(hidden_layer_sizes=(512, 256), max_iter=1000, random_state=42)</pre></div></div></div></div></div></div></div>
+</div>
+</section>
+</section>
+<section id="evaluasi">
+<h2>Evaluasi<a class="headerlink" href="#evaluasi" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Random Forest</span>
+<span class="c1"># Melakukan prediksi pada data uji</span>
+<span class="n">rf_predictions</span> <span class="o">=</span> <span class="n">rf_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 
+<span class="c1"># Menghitung akurasi dan menampilkan laporan klasifikasi</span>
+<span class="n">rf_accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">rf_predictions</span><span class="p">)</span>
+<span class="n">rf_report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">rf_predictions</span><span class="p">)</span>
+
+
+
+<span class="c1">#SVM</span>
+<span class="c1"># Melakukan prediksi pada data uji</span>
+<span class="n">svm_predictions</span> <span class="o">=</span> <span class="n">svm_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Menghitung akurasi dan menampilkan laporan klasifikasi</span>
+<span class="n">svm_accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">svm_predictions</span><span class="p">)</span>
+<span class="n">svm_report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">svm_predictions</span><span class="p">)</span>
+
+
+<span class="c1"># Decision Tree</span>
+<span class="c1"># Melakukan prediksi pada data uji</span>
+<span class="n">decision_tree_predictions</span> <span class="o">=</span> <span class="n">decision_tree_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Menghitung akurasi dan menampilkan laporan klasifikasi</span>
+<span class="n">decision_tree_accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">decision_tree_predictions</span><span class="p">)</span>
+<span class="n">dt_report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">decision_tree_predictions</span><span class="p">)</span>
+
+<span class="c1"># Logistic Regresion</span>
+<span class="c1"># Melakukan prediksi pada data uji</span>
+<span class="n">logistic_reg_predictions</span> <span class="o">=</span> <span class="n">logistic_reg_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Menghitung akurasi dan menampilkan laporan klasifikasi</span>
+<span class="n">logistic_reg_accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">logistic_reg_predictions</span><span class="p">)</span>
+<span class="n">lg_report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">logistic_reg_predictions</span><span class="p">)</span>
+
+
+<span class="c1"># Neural Network</span>
 <span class="c1"># Melakukan prediksi pada data uji</span>
 <span class="n">ann_predictions</span> <span class="o">=</span> <span class="n">ann_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 
@@ -1948,100 +2190,86 @@ Name: type, Length: 80, dtype: int64
   _warn_prf(average, modifier, msg_start, len(result))
 /usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
   _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/usr/local/lib/python3.10/dist-packages/sklearn/metrics/_classification.py:1344: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="hasil-akurasi">
-<h3>Hasil Akurasi<a class="headerlink" href="#hasil-akurasi" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print(&quot;Akurasi k-NN:&quot;,knn_accuracy)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi Random Forest:&quot;</span><span class="p">,</span><span class="n">rf_accuracy</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">rf_report</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--------------&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi SVM:&quot;</span><span class="p">,</span><span class="n">svm_accuracy</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">svm_report</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--------------&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi Decision Tree:&quot;</span><span class="p">,</span><span class="n">decision_tree_accuracy</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">dt_report</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--------------&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi Logistic Regression:&quot;</span><span class="p">,</span><span class="n">logistic_reg_accuracy</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">lg_report</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--------------&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi Neural Network (MLPClassifier):&quot;</span><span class="p">,</span><span class="n">ann_accuracy</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">ann_report</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--------------&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi Random Forest:&quot;</span><span class="p">,</span><span class="n">rf_accuracy</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi SVM:&quot;</span><span class="p">,</span><span class="n">svm_accuracy</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi Decision Tree:&quot;</span><span class="p">,</span><span class="n">decision_tree_accuracy</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi Logistic Regression:&quot;</span><span class="p">,</span><span class="n">logistic_reg_accuracy</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi Neural Network (MLPClassifier):&quot;</span><span class="p">,</span><span class="n">ann_accuracy</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi Random Forest: 0.9523809523809523 
-               precision    recall  f1-score   support
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi Random Forest: 0.9523809523809523
+Akurasi SVM: 0.9523809523809523
+Akurasi Decision Tree: 0.8571428571428571
+Akurasi Logistic Regression: 0.9523809523809523
+Akurasi Neural Network (MLPClassifier): 0.9523809523809523
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h3>Visualisasi<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-           1       1.00      1.00      1.00        12
-           2       1.00      1.00      1.00         2
-           3       0.00      0.00      0.00         1
-           4       0.67      1.00      0.80         2
-           6       1.00      1.00      1.00         3
-           7       1.00      1.00      1.00         1
+<span class="c1"># Data akurasi</span>
+<span class="n">models</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Random Forest&#39;</span><span class="p">,</span> <span class="s1">&#39;SVM&#39;</span><span class="p">,</span> <span class="s1">&#39;Decision Tree&#39;</span><span class="p">,</span> <span class="s1">&#39;Logistic Regression&#39;</span><span class="p">,</span> <span class="s1">&#39;Neural Network&#39;</span><span class="p">]</span>
+<span class="n">accuracies</span> <span class="o">=</span> <span class="p">[</span><span class="n">rf_accuracy</span><span class="p">,</span> <span class="n">svm_accuracy</span><span class="p">,</span> <span class="n">decision_tree_accuracy</span><span class="p">,</span> <span class="n">logistic_reg_accuracy</span><span class="p">,</span> <span class="n">ann_accuracy</span><span class="p">]</span>
 
-    accuracy                           0.95        21
-   macro avg       0.78      0.83      0.80        21
-weighted avg       0.92      0.95      0.93        21
- 
---------------
-Akurasi SVM: 0.9523809523809523 
-               precision    recall  f1-score   support
-
-           1       1.00      1.00      1.00        12
-           2       1.00      1.00      1.00         2
-           3       0.00      0.00      0.00         1
-           4       0.67      1.00      0.80         2
-           6       1.00      1.00      1.00         3
-           7       1.00      1.00      1.00         1
-
-    accuracy                           0.95        21
-   macro avg       0.78      0.83      0.80        21
-weighted avg       0.92      0.95      0.93        21
- 
---------------
-Akurasi Decision Tree: 0.8571428571428571 
-               precision    recall  f1-score   support
-
-           1       1.00      1.00      1.00        12
-           2       1.00      1.00      1.00         2
-           3       0.00      0.00      0.00         1
-           4       0.67      1.00      0.80         2
-           6       1.00      0.33      0.50         3
-           7       0.33      1.00      0.50         1
-
-    accuracy                           0.86        21
-   macro avg       0.67      0.72      0.63        21
-weighted avg       0.89      0.86      0.84        21
- 
---------------
-Akurasi Logistic Regression: 0.9523809523809523 
-               precision    recall  f1-score   support
-
-           1       1.00      1.00      1.00        12
-           2       1.00      1.00      1.00         2
-           3       0.00      0.00      0.00         1
-           4       0.67      1.00      0.80         2
-           6       1.00      1.00      1.00         3
-           7       1.00      1.00      1.00         1
-
-    accuracy                           0.95        21
-   macro avg       0.78      0.83      0.80        21
-weighted avg       0.92      0.95      0.93        21
- 
---------------
-Akurasi Neural Network (MLPClassifier): 0.9523809523809523 
-               precision    recall  f1-score   support
-
-           1       1.00      1.00      1.00        12
-           2       1.00      1.00      1.00         2
-           3       0.00      0.00      0.00         1
-           4       0.67      1.00      0.80         2
-           6       1.00      1.00      1.00         3
-           7       1.00      1.00      1.00         1
-
-    accuracy                           0.95        21
-   macro avg       0.78      0.83      0.80        21
-weighted avg       0.92      0.95      0.93        21
- 
---------------
+<span class="c1"># Membuat diagram batang</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">models</span><span class="p">,</span> <span class="n">accuracies</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Menetapkan batas y-axis antara 0 dan 1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Akurasi Model Klasifikasi&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Model&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Akurasi&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/13436dffd93c7b715956901760522d973666cf08209be0114efcdf9ce9f2e8ef.png" src="_images/13436dffd93c7b715956901760522d973666cf08209be0114efcdf9ce9f2e8ef.png" />
+</div>
+</div>
+<p>Save Model</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="c1"># save model</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;svm_model.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">svm_clf</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2104,31 +2332,37 @@ weighted avg       0.92      0.95      0.93        21
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dataset-zoo">Install dataset Zoo</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-uci-error">Web Uci error</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-manual">install manual</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#business-understanding">Business Understanding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">Data Understanding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-atribut">Penjelasan atribut</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kelompok-hewan-berdasarkan-tipe-type">Kelompok hewan berdasarkan Tipe/type</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#melihat-fitur-yang-ada-pada-hewan"><strong>Melihat fitur yang ada pada hewan</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rata-rata-fitur-tiap-hewan">Rata rata fitur tiap hewan</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-hewan-berdasarkan-kaki">Menghitung hewan berdasarkan kaki</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-fitur-tanpa-kaki-legs">Distribusi Fitur tanpa kaki/legs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-fitur-kaki">Distribusi fitur kaki</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengurutan-nama-hewan-berdasarkan-kaki">Pengurutan nama Hewan berdasarkan kaki</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smote-metode-untuk-duplikasi"><strong>Smote metode untuk duplikasi</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">Data Preparation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#library-uci-machine-learning">Library uci machine learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dataset-zoo-otomatis">Install dataset Zoo otomatis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dataset-zoo-manual">Install dataset Zoo Manual</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-kelas-hewan">Mapping kelas hewan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rata-rata-distribusi-fitur-pada-keseluruhan-hewan-kategorikal-boolean">Rata rata distribusi fitur pada keseluruhan hewan (Kategorikal/Boolean)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rata-rata-distribusi-fitur-pada-keseluruhan-hewan-numerik">Rata rata distribusi fitur pada keseluruhan hewan (Numerik)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-fitur-tanpa-kaki-legs">Distribusi Fitur tanpa kaki/legs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-fitur-kaki">Distribusi fitur kaki</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengurutan-nama-hewan-berdasarkan-kaki">Pengurutan nama Hewan berdasarkan kaki</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value">Missing value</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data">Split data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-smote"><strong>Proses Smote</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smote">Smote</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi">Visualisasi</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi">Visualisasi</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">Modelling</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#support-vector-machine">Support Vector Machine</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-tree">Decision Tree</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regresion">Logistic Regresion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#neural-network">Neural Network</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-akurasi">Hasil Akurasi</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi">Evaluasi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Visualisasi</a></li>
 </ul>
 </li>
 </ul>
